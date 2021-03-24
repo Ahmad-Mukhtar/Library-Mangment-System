@@ -1,0 +1,265 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="afterlogin.master.cs" Inherits="afterlogin.afterlogin" %>
+
+<!doctype html>
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Library Managment System</title>
+    <meta name="description" content="Librarayproject">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="assets/css/Custom.css" />
+    <link rel="stylesheet" href="../CSS/searchbxbtn.css" />
+    <link rel="stylesheet" href="bokscss.css" />
+   
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+
+</head>
+
+<body class="bg-flat-color-2">
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
+                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#"><i class="menu-icon fa fa-dashboard fa-4x"></i>User Panel</a>
+                    </li>
+                    <h3 class="menu-title">Menus</h3>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><i class="menu-icon fa fa-book"></i>View Books</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-book"></i><a href="Home.aspx" >All Books</a></li>
+                            <li><i class="fa fa-ravelry"></i><a href="#" id="act" onclick="callgenre('Action')";>Action</a></li>
+                            <li><i class="fa fa-renren"></i><a href="filtergenre.aspx" onclick="callgenre('Adventure')";>Adventure</a></li>
+                            <li><i class="fa fa-hourglass-2"></i><a href="filtergenre.aspx" onclick="callgenre('Drama')";>Drama</a></li>
+                            <li><i class="fa fa-superpowers"></i><a href="filtergenre.aspx" onclick="callgenre('Fantasy')";>Fantasy</a></li>
+                            <li><i class="fa fa-magic"></i><a href="filtergenre.aspx" onclick="callgenre('Horror')";>Horror</a></li>
+                            <li><i class="fa fa-spinner"></i><a href="filtergenre.aspx" onclick="callgenre('Fiction')";>Fiction</a></li>
+                        </ul>
+                    </li>
+                      <li class="active">
+                      <a href="Editprofile.aspx"><i class="menu-icon fa fa-pencil-square-o"></i>Edit Profile</a>
+
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><i class="menu-icon fa fa-bookmark-o"></i>Issue Detail</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-bookmark"></i><a href="ViewIssued.aspx">View Issued Books</a></li>
+                            <li><i class="fa fa-search-plus"></i><a href="IssueBooks.aspx">Issue a Book</a></li>
+                        </ul>
+                    </li>
+
+
+
+                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><i class="menu-icon fa fa-sort"></i>Sort Books</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-sort-alpha-asc"></i><a href="sortbyasc.aspx">Sort by Acsending Order</a></li>
+                            <li><i class="fa fa-sort-alpha-desc"></i><a href="Sortdsc.aspx">Sort by Descending Order</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="active">
+                      <a href="Renewbook.aspx"><i class="menu-icon fa fa-refresh"></i>Renew Book</a>
+
+                    </li>
+
+
+                    <li class="active">
+                        <a href="ReturnBook.aspx"><i class="menu-icon fa fa-mail-reply"></i>Return Book</a>
+                    </li>
+
+
+                    <li class="active">
+                        <a href="History.aspx"><i class="menu-icon fa fa-history"></i>History </a>
+                    </li>
+
+                   
+                    <li>
+                        <a href="Favourites.aspx"><i class="menu-icon fa fa-heart"></i>Favourites </a>
+                    </li>
+                      <li class="active">
+                      <a href="Penalty.aspx"><i class="menu-icon fa fa-warning"></i>Penalty</a>
+
+                    </li>
+                   
+                      <li>
+                        <a href="../Login.aspx"><i class="menu-icon fa fa-sign-out"></i>Sign out</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+
+    <!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+           <div  class="box" style="margin-left:160px;">
+        
+                       <input class="searchtextbox" style="margin-top:70px;" type="search" placeholder="Search" id="inbox" />
+                    <button class="btnsearch" style="padding-left:5px;"type="button" name="Search" id="btnlsearch" onclick="callsearch();">Search</button>   
+
+     </div>
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+
+                  
+                </div>
+
+                <div class="col-sm-5">        
+                    <div class="user-area dropdown float-right">
+                                                    <i style="padding-right:10px;">Hello User</i>    
+
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/imj.png" alt="User Avatar">
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                           <a href="../Login.aspx"><i class="menu-icon fa fa-sign-out"></i>Sign out </a>
+                             
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+        <!-- /header -->
+        <!-- Header-->
+
+        <div class="content mt-3">
+            
+            <asp:ContentPlaceHolder ID="C1" runat="server">
+            </asp:ContentPlaceHolder>
+                 
+        </div>
+    </div>
+
+
+
+    <!-- Right Panel -->
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/widgets.js"></script>
+    <script src="assets/js/lib/vector-map/jquery.vmap.js"></script>
+    <script src="assets/js/lib/vector-map/jquery.vmap.min.js"></script>
+    <script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+    <script src="assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+
+    
+           function callsearch() {
+               var val = document.getElementById("inbox").value;
+               if (val == "") {
+                  
+                   window.location.href = "Home.aspx";
+               }
+               else {
+
+                  
+                   var d = new Date();
+                   d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+                   var expires = "expires=" + d.toUTCString();
+                   var s = "scookie";
+                   document.cookie = s + "=" + val + ";" + expires + ";path=searchres.aspx";
+
+                  
+                   window.location.href = "searchres.aspx";
+               }
+        }
+
+        function callgenre(gen)
+        {
+            
+            var d = new Date();
+            d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            var s = "gencookie";
+            document.cookie = s + "=" + gen + ";" + expires + ";path=filtergenre.aspx";
+            console.log(document.cookie);
+            window.location.href = "filtergenre.aspx";
+        }
+
+   
+      
+       
+
+        
+    </script>
+
+</body>
+</html>
